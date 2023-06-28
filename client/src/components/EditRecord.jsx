@@ -75,7 +75,6 @@ const EditRecord = () => {
                 }
             })
             await axios.get(`http://localhost:9090/staff/doctor/${doctorId}`).then((response) => {
-                console.log(response);
                 if (!response.data) {
                     b=false;
                     console.log("Doctor not found with id : "+doctorId);
@@ -94,9 +93,7 @@ const EditRecord = () => {
             else if(a===false && b===true){
                 setError("Invalid Patient Id : "+patientId);
             }
-            console.log("came here",a,b,a&b);
             setCheckValid((a===true && b===true)?true:false);
-            console.log(checkValid)
         }
         else {
             return;
@@ -190,7 +187,7 @@ const EditRecord = () => {
                     </form>
 
                 </div>
-            </div>) : <h2 className="text-center">Loading.....</h2>}
+            </div>) : <h2 className="text-center">Page Not Found</h2>}
         </div>
     );
 }
